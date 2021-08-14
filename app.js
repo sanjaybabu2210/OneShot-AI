@@ -8,6 +8,7 @@ var bodyParser = require("body-parser");
 var path = require('path');
 var methodOverride = require("method-override");
 
+
 require('dotenv').config();
 
 var college = require('./models/College');
