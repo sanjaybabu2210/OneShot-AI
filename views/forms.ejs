@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<h3>Add College Details Here</h3>
+
+<div>
+  <form action="/addColleges" method="POST">
+    <label for="id">Id</label>
+    <input type="text" id="id" name="id" placeholder="College Id">
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="College name">
+
+    <label for="year">Year Founded</label>
+    <input type="text" id="year" name="year" placeholder="Year Founded">
+
+    <label for="city">City</label>
+    <input type="text" id="city" name="city" placeholder="City">
+
+    <label for="state">State</label>
+    <input type="text" id="state" name="state" placeholder="State">
+
+    <label for="country">Country</label>
+    <select id="country" name="country">
+      <option value="Malaysia">Malaysia</option>
+      <option value="Canada">Canada</option>
+      <option value="Usa">USA</option>
+      <option value="India">India</option>
+      <option value="Russia">Russia</option>
+      <option value="Australia">Australia</option>
+      <option value="Pakistan">Pakistan</option>
+      <option value="China">China</option>
+      <option value="Japan">Japan</option>
+      <option value="South Africa">South Africa</option>
+      <option value="England">England</option>
+      <option value="Korea">Korea</option>
+
+    </select>
+    
+    <label for="students">No of Students</label>
+    <input type="number" id="students" name="students" placeholder="No of Students">
+
+    <label for="courses">Courses Offered</label>
+    <input type="text" id="courses" name="courses" placeholder=" Electronics, Computer Science, Maths ...">
+
+    
+    <input type="submit" value="Submit">
+  </form>
+</div>
+<h3>Add Student Details Here</h3>
+
+<div>
+  <form action="/addStudents" method="POST">
+    
+    
+    <label for="id">Id</label>
+    <input type="text" id="id" name="id" placeholder="Student Id">
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Student name">
+
+    <label for="year">Batch</label>
+    <input type="text" id="year" name="year" placeholder="Year of batch">
+
+    <label for="collid">College Id</label>
+    <input type="text" id="collid" name="collegeId" placeholder="College Id">
+
+    <label for="skills">Skills </label>
+    <input type="text" id="skills" name="skills" placeholder="Skills">
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</body>
+</html>
