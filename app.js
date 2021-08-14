@@ -43,6 +43,11 @@ app.use(bodyParser.urlencoded({limit: '50mb',extended:true}));
 
 app.use(express.static(path.join(__dirname, 'public/')));
 
+app.get("/", function(req,res){
+
+    res.send("hi");
+ })
+
 
 app.get("/allCollege",function(req,res){
 
@@ -203,8 +208,6 @@ app.post("/addColleges",function(req,res){
 
     
  });
-
-
 
 
 
