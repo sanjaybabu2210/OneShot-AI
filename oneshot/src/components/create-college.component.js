@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import axios from 'axios';
-import { Form } from 'react-bootstrap';
+
 export default class addCollege extends Component {
 
     constructor(props){
@@ -34,7 +34,7 @@ export default class addCollege extends Component {
     componentDidMount(){
         this.setState({
             id: '',
-            name: 'test',
+            name: '',
             year: '',
             city: '',
             state: '',
@@ -99,19 +99,18 @@ export default class addCollege extends Component {
             }
             console.log(college);
 
-            axios.post('https://glacial-wave-89509.herokuapp.com/addColleges/', college).then(res => console.log(res.data));
+            axios.post('https://glacial-wave-89509.herokuapp.com/addColleges/', college).then(res => {console.log(res.data);window.location = '/';});
 
 
-            // window.location = '/';
+            
         }
     render(){
         return (
 
-            <div style={{  width:"40vw",padding:20,marginLeft:'20%',background:"snow",borderRadius:10,minWidth:400}}>
-                <h3>Add New College</h3>
-           <form onSubmit = {this.onSubmit}>
-
-               
+            <div>
+                
+           <form onSubmit = {this.onSubmit} style={{width:"60%",backgroundColor:"lightslategray",borderRadius:10,padding:30,margin:'auto'}}>
+           <h3>Add New College</h3>
                 <div className = "form-group">
                     <label> College Id:</label>
                     <input type="text" className="form-control" value = {this.state.id} onChange = {this.onChangeId} />
@@ -152,9 +151,9 @@ export default class addCollege extends Component {
                     <input type="text" className="form-control" value = {this.state.courses} onChange = {this.onChangeCourses} />
 
                 </div> 
-                <div className = "form-group" style={{marginTop:10}}>
+                <div className = "form-group" style={{marginTop:20}}>
                 
-                    <input type="submit" className="btn btn-primary" />
+                    <input type="submit" className="btn btn-info" />
 
                 </div> 
            </form>

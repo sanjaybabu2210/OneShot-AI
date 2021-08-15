@@ -69,7 +69,7 @@ export default class addStudent extends Component {
         }
         console.log(student);
 
-        axios.post('https://glacial-wave-89509.herokuapp.com/addStudents/', student).then(res => console.log(res.data));
+        axios.post('https://glacial-wave-89509.herokuapp.com/addStudents/', student).then(res => {console.log(res.data);window.location = '/';});
 
         this.setState({
             id :'',
@@ -81,6 +81,7 @@ export default class addStudent extends Component {
             skills: ''
         })
         
+        
     }
 
 
@@ -88,7 +89,7 @@ export default class addStudent extends Component {
         return (
             <div>
                 
-           <form onSubmit = {this.onSubmit} style={{width:"40vw",padding:20,marginLeft:'20%',background:"snow",borderRadius:10,minWidth:400}}>
+           <form onSubmit = {this.onSubmit} style={{width:"60%",backgroundColor:"lightslategray",borderRadius:10,padding:30,margin:'auto'}}>
            <h3>Add New student</h3>
                 <div className = "form-group">
                     <label> Student Id:</label>
@@ -117,9 +118,9 @@ export default class addStudent extends Component {
                     <input type="text" className="form-control" value = {this.state.skills} onChange = {this.onChangeSkills} />
 
                 </div> 
-                <div className = "form-group" style={{marginTop:10}}>
+                <div className = "form-group" style={{marginTop:20}}>
                 
-                    <input type="submit" className="btn btn-primary btn-block" />
+                    <input type="submit" className="btn btn-info" />
 
                 </div> 
            </form>

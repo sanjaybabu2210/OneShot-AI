@@ -29,6 +29,16 @@ curl \
 --request GET \
 https://glacial-wave-89509.herokuapp.com/college/:id/
 
+# Get a College By state
+curl \
+--request GET \
+https://glacial-wave-89509.herokuapp.com/state/college/:id/
+
+# Get a College By Course
+curl \
+--request GET \
+https://glacial-wave-89509.herokuapp.com/course/college/:id/
+
 # Get a Student By Name of ID
 curl \
 --request GET \

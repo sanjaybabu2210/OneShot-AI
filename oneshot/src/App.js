@@ -121,7 +121,6 @@ render(){
       <Route path="/addCollege" component = {createCollege} />
       <Route path="/addStudent" component = {createStudent} />
 
-
       </div>
 
            
