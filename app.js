@@ -48,7 +48,19 @@ app.get("/", function(req,res){
     res.send("Here Runs Backend Server for APP");
  })
 
+ app.get("/state/college/:id",function(req,res){
 
+    var state = req.params.id;
+    college.find({state:state},function(err, found) {
+        if(err)
+        console.log(err);
+         else{
+             
+             res.json({coll:found});
+         }
+    });
+
+});
 app.get("/allCollege",function(req,res){
 
     college.find({},function(err, found) {
@@ -137,19 +149,7 @@ app.get("/collegeState/:id",function(req,res){
 });
 
 
-app.get("/state/college/:id",function(req,res){
 
-    var state = req.params.id;
-    student.find({state:state},function(err, found) {
-        if(err)
-        console.log(err);
-         else{
-             
-             res.json({coll:found});
-         }
-    });
-
-});
 
 app.post("/addColleges",function(req,res){
     

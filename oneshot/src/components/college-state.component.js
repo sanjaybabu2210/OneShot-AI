@@ -109,8 +109,10 @@ export default class collegeList extends Component {
     }
     componentDidMount(){
         axios.get("https://glacial-wave-89509.herokuapp.com/state/college/" + this.props.match.params.id).then(response => {
-            console.log(response.data.coll);
+            console.log("fafddsfdsfds",response.data.coll);
             
+
+              
             this.setState({colleges: response.data.coll})
 
             
