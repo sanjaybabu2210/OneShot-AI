@@ -108,7 +108,7 @@ export default class collegeList extends Component {
         this.setState({ search: searchValue, count:[] });
     }
     componentDidMount(){
-        axios.get("https://glacial-wave-89509.herokuapp.com/state/college/" + this.props.match.params.id).then(response => {
+        axios.get("https://glacial-wave-89509.herokuapp.com/course/college/" + this.props.match.params.id).then(response => {
             console.log("fafddsfdsfds",response.data.coll);
             
 
@@ -142,7 +142,7 @@ export default class collegeList extends Component {
 
         return (
             <div>
-                <h3 style={{textAlign:'center'}}> Colleges View</h3>
+                <h3 style={{textAlign:'center'}}> Colleges View </h3>
                 <UserInput update={(e) => this.handleChange(e)} />
                 <Table columns={columns} dataSource={colle} />
 

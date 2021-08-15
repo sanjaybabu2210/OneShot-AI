@@ -48,6 +48,19 @@ app.get("/", function(req,res){
     res.send("Here Runs Backend Server for APP");
  })
 
+ app.get("/course/college/:id",function(req,res){
+
+    var courses = req.params.id;
+    college.find({courses:courses},function(err, found) {
+        if(err)
+        console.log(err);
+         else{
+             
+             res.json({coll:found});
+         }
+    });
+
+});
  app.get("/state/college/:id",function(req,res){
 
     var state = req.params.id;

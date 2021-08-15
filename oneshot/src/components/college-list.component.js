@@ -88,7 +88,7 @@ export default class collegeList extends Component {
         // this.deleteCollege = this.deleteCollege.bind(this);
 
 
-        this.state = {colleges: [], search: '',freqcat: [],frestat:[],status:false,statecat:[]}
+        this.state = {colleges: [], search: '',freqcat: [],frestat:[],status:false,statecat:[],coursecat: []}
         this.changeStatusTrue = this.changeStatusTrue.bind(this)
         this.changeStatusFalse = this.changeStatusFalse.bind(this)
 
@@ -165,6 +165,7 @@ export default class collegeList extends Component {
             const datat = freq.filter(unique);
             const datat2 = freq2.filter(unique);
             this.setState({statecat:datat2});
+            this.setState({coursecat:datat});
 
             var cout = [];
             var cout2 = [];
@@ -317,7 +318,7 @@ var config2 = {
             <div style={{textAlign:'center',marginLeft:"22%",marginBottom:30}} className="row">
               
               
-              <div className="col-sm-4">
+              <div className="col-sm-3">
               < Dropdown>
   <Dropdown.Toggle variant="info" id="dropdown-basic">
     Select By State
@@ -332,7 +333,22 @@ var config2 = {
 </Dropdown>
 
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-3">
+              < Dropdown>
+  <Dropdown.Toggle variant="info" id="dropdown-basic">
+    Select By Course
+  </Dropdown.Toggle>
+  <Dropdown.Menu>
+    {this.state.coursecat.map(course => {
+
+        return( <Dropdown.Item> <Link to={"/course/college/" + course} >{course}</Link></Dropdown.Item>)
+    })}
+
+ </Dropdown.Menu>
+</Dropdown>
+
+              </div>
+              <div className="col-sm-3">
               < Dropdown>
   <Dropdown.Toggle variant="info" id="dropdown-basic">
     Change View 
