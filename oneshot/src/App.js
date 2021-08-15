@@ -101,7 +101,7 @@ render(){
           style={{
             margin: '24px 16px',
             padding: 24,
-            minHeight: 980,
+            minHeight: 880,
             
           }}
         >

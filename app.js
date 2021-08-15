@@ -50,8 +50,8 @@ app.get("/", function(req,res){
 
  app.get("/course/college/:id",function(req,res){
 
-    var courses = req.params.id;
-    college.find({courses:courses},function(err, found) {
+    var course = req.params.id;
+    college.find({ courses: { $in: [course] } },function(err, found) {
         if(err)
         console.log(err);
          else{
