@@ -3,22 +3,6 @@ import React, {Component} from 'react';
 import {Link} from  'react-router-dom';
 import { Table, Tag, Space } from 'antd';
 
-
-// const Student = props => (
-
-//     <tr>
-//         <td> {props.stu.id} </td>
-//         <td> {props.stu.name} </td>
-//         <td> {props.stu.batchYR} </td>
-//         <td> {props.stu.collegeID} </td>
-//         <td> {props.stu.skills}</td>
-//         <td>
-//             <Link to= {"/students/" + props.stu.id }> view </Link>
-           
-//         </td>
-//     </tr>
-// )
-
 const columns = [
     {
       title: 'Id',
@@ -42,7 +26,7 @@ const columns = [
       key: 'view',
       render: (text, record) => (
         <Space size="middle">
-          <Link to= {"/students/" + record.id }  > view </Link>
+          <Link to= {"/students/" + record.id }  > <Tag color="#778899"> view </Tag> </Link>
         </Space>
       ),
     },
@@ -64,7 +48,7 @@ export default class collegeList extends Component {
 
         super(props);
 
-        // this.deleteCollege = this.deleteCollege.bind(this);
+        
 
 
         this.state = {students: [],search:''}
@@ -73,11 +57,11 @@ export default class collegeList extends Component {
         // Get event value
         let searchValue = event.target.value;
 
-        // Set the state to trigger a re-rendering
+        
         this.setState({ search: searchValue });
     }
     componentDidMount(){
-        axios.get('http://localhost:5000/allStudents/').then(response => {
+        axios.get('https://glacial-wave-89509.herokuapp.com/allStudents/').then(response => {
             console.log(response.data.students);
             this.setState({students: response.data.students})
             
@@ -96,13 +80,13 @@ export default class collegeList extends Component {
         let stud = this.state.students,
         searchString = this.state.search.trim().toLowerCase();
         if (searchString.length > 0) {
-            // We are searching. Filter the results.
+            
             stud = stud.filter((e) => e.name.toLowerCase().match(searchString) || e.id.toLowerCase().match(searchString));
         }
 
         return (
             <div>
-                <h3>Student List</h3>
+                <h3 style={{textAlign:'center'}}> All Student List</h3>
                 <UserInput update={(e) => this.handleChange(e)} />
 
                                 <Table columns={columns} dataSource={stud} />

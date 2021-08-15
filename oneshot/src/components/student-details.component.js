@@ -14,10 +14,6 @@ const Student = props => (
 
         <td> {props.stu.skills} </td>
 
-        {/* <td>
-            <Link to= {"/colleges/" + props.colle.id }> view </Link>
-           
-        </td> */}
     </tr>
 )
 
@@ -29,14 +25,13 @@ export default class collegeList extends Component {
 
         super(props);
 
-        // this.deleteCollege = this.deleteCollege.bind(this);
 
 
         this.state = {student: ""}
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/student/' + this.props.match.params.id).then(response => {
+        axios.get('https://glacial-wave-89509.herokuapp.com/student/' + this.props.match.params.id).then(response => {
             console.log(response.data.student[0]);
             this.setState({student: response.data.student[0]})
             
@@ -54,7 +49,7 @@ export default class collegeList extends Component {
     render(){
         return (
             <div>
-                <h3>All Colleges</h3>
+                <h3>Student Details</h3>
                 <table className="table">
                     <thead className="thead-light">
                         <tr>

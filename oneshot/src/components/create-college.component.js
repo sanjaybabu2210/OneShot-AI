@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import axios from 'axios';
-
+import { Form } from 'react-bootstrap';
 export default class addCollege extends Component {
 
     constructor(props){
@@ -33,7 +33,7 @@ export default class addCollege extends Component {
 
     componentDidMount(){
         this.setState({
-            id: '3',
+            id: '',
             name: 'test',
             year: '',
             city: '',
@@ -99,7 +99,7 @@ export default class addCollege extends Component {
             }
             console.log(college);
 
-            axios.post('http://localhost:5000/addColleges/', college).then(res => console.log(res.data));
+            axios.post('https://glacial-wave-89509.herokuapp.com/addColleges/', college).then(res => console.log(res.data));
 
 
             // window.location = '/';
@@ -107,9 +107,11 @@ export default class addCollege extends Component {
     render(){
         return (
 
-            <div>
+            <div style={{  width:"40vw",padding:20,marginLeft:'20%',background:"snow",borderRadius:10,minWidth:400}}>
                 <h3>Add New College</h3>
            <form onSubmit = {this.onSubmit}>
+
+               
                 <div className = "form-group">
                     <label> College Id:</label>
                     <input type="text" className="form-control" value = {this.state.id} onChange = {this.onChangeId} />
@@ -150,7 +152,7 @@ export default class addCollege extends Component {
                     <input type="text" className="form-control" value = {this.state.courses} onChange = {this.onChangeCourses} />
 
                 </div> 
-                <div className = "form-group">
+                <div className = "form-group" style={{marginTop:10}}>
                 
                     <input type="submit" className="btn btn-primary" />
 

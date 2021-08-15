@@ -88,19 +88,12 @@ export default class collegeList extends Component {
         // this.deleteCollege = this.deleteCollege.bind(this);
 
 
-        this.state = {colleges: [], search: '',freqcat: [],frestat:[],status:false,statecat:[]}
+        this.state = {colleges: [], search: '',freqcat: [],frestat:[],status:false}
         this.changeStatusTrue = this.changeStatusTrue.bind(this)
         this.changeStatusFalse = this.changeStatusFalse.bind(this)
 
 
     }
-    // stateList(){
-    //               return (
-    //                 <Dropdown.Item onClick={this.changeStatusFalse}></Dropdown.Item>
-
-    //              );
-
-    // }
     changeStatusTrue(){
         this.setState({status:false});
     }
@@ -143,7 +136,7 @@ export default class collegeList extends Component {
                 
 
             }
-            
+
 
             const counts = {};
             
@@ -164,7 +157,6 @@ export default class collegeList extends Component {
            
             const datat = freq.filter(unique);
             const datat2 = freq2.filter(unique);
-            this.setState({statecat:datat2});
 
             var cout = [];
             var cout2 = [];
@@ -208,66 +200,6 @@ export default class collegeList extends Component {
     render(){
 
 
-      
-var config1 = {
-appendPadding: 10,
-data: this.state.freqcat,
-angleField: 'value',
-colorField: 'key',
-radius: 1,
-innerRadius: 0.6,
-label: {
-  type: 'inner',
-  offset: '-50%',
-  content: '{value} %',
-  style: {
-    textAlign: 'center',
-    fontSize: 14,
-  },
-},
-interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
-statistic: {
-  title: false,
-  content: {
-    style: {
-      whiteSpace: 'pre-wrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-    },
-    content: 'Courses',
-  },
-},
-};
-
-var config2 = {
-  appendPadding: 10,
-  data: this.state.frestat,
-  angleField: 'value',
-  colorField: 'key',
-  radius: 1,
-  innerRadius: 0.6,
-  label: {
-    type: 'inner',
-    offset: '-50%',
-    content: '{value} %',
-    style: {
-      textAlign: 'center',
-      fontSize: 14,
-    },
-  },
-  interactions: [{ type: 'element-selected' }, { type: 'element-active' }],
-  statistic: {
-    title: false,
-    content: {
-      style: {
-        whiteSpace: 'pre-wrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-      },
-      content: 'States',
-    },
-  },
-  };
         let colle = this.state.colleges,
             searchString = this.state.search.trim().toLowerCase();
             if (searchString.length > 0) {
@@ -277,92 +209,9 @@ var config2 = {
 
         return (
             <div>
-
-              <div className="row text-center" style={{textAlign:'center',marginBottom:30}}>
-
-
-
-                  <div className="col-sm-4" style={{ background:'#2f4f4f ',height:'35vh',width:'36vw',margin:'auto',borderRadius:5,boxShadow:"2px 4px 4px 6px",padding:'1vw',minWidth:320}}>
-                  <Link to="/colleges"  >
-                          <div style={{textAlign:'center',verticalAlign:'middle',fontFamily:'fantasy',text:'snow',height:'30vh',width:'34vw'}}>
-                            <h3 style={{color:'snow',marginTop:'10vh'}}>College List</h3>
-                          </div> </Link>
-                  </div>
-
-                  
-                  <div className="col-sm-4" style={{background:'#2f4f4f ',height:'35vh',width:'36vw',margin:'auto',borderRadius:5,boxShadow:"2px 4px 4px 6px",padding:'1vw',minWidth:320}}>
-                  
-                  <Link to="/students"  >
-                  <div style={{textAlign:'center',verticalAlign:'middle',fontFamily:'fantasy',text:'snow',height:'30vh',width:'34vw'}}>
-                            <h3 style={{color:'snow',marginTop:'10vh'}}>Student List</h3>
-                          </div>
-                          </Link>
-                    </div>
-                  
-              </div>
-             
-                {/* <h3 style={{textAlign:'center'}}>All Colleges View</h3>
-
-
+                <h3 style={{textAlign:'center'}}>All Colleges View</h3>
                 <UserInput update={(e) => this.handleChange(e)} />
-
-
-                <Table columns={columns} dataSource={colle} /> */}
-
-
-
-
-
-
-            <div style={{textAlign:'center',marginLeft:"22%",marginBottom:30}} className="row">
-              
-              
-              <div className="col-sm-4">
-              < Dropdown>
-  <Dropdown.Toggle variant="info" id="dropdown-basic">
-    Select By State
-  </Dropdown.Toggle>
-  <Dropdown.Menu>
-    {this.state.statecat.map(state => {
-
-        return( <Dropdown.Item> <Link to={"/state/college/" + state} >{state}</Link></Dropdown.Item>)
-    })}
-
- </Dropdown.Menu>
-</Dropdown>
-
-              </div>
-              <div className="col-sm-4">
-              < Dropdown>
-  <Dropdown.Toggle variant="info" id="dropdown-basic">
-    Change View 
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-    <Dropdown.Item onClick={this.changeStatusTrue}>States View</Dropdown.Item>
-    <Dropdown.Item onClick={this.changeStatusFalse}>Courses View</Dropdown.Item>
-   
-  </Dropdown.Menu>
-</Dropdown>
-
-              </div>
- 
-
-</div>
-
-            {this.state.status?<div style={{}}>
-            <Card className="bg-light text-white p-4">
- 
-            <Pie {...config1} />
-</Card>
-           
-            </div> : <div>
-            <Card className="bg-light text-white p-4" >
-            <Pie {...config2} />
-            </Card>
-            </div>}
-                
-                
+                <Table columns={columns} dataSource={colle} />
 
             </div>
         )

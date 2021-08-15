@@ -88,12 +88,12 @@ const columns1 = [
       key: 'view',
       render: (text, record) => (
         <Space size="middle">
-          <Link to= {"/students/" + record.id }  > view </Link>
+          <Link to= {"/students/" + record.id }  > <Tag color="#778899"> view </Tag> </Link>
         </Space>
       ),
     },
   ];
-  
+
   const columns3 = [
     {
       title: 'Id',
@@ -121,7 +121,7 @@ const columns1 = [
       key: 'view',
       render: (text, record) => (
         <Space size="middle">
-          <Link to= {"/simi/colleges/" + record.id }  > view </Link>
+          <Link to= {"/simi/colleges/" + record.id }  > <Tag color="#778899"> view </Tag> </Link>
         </Space>
       ),
     },
@@ -149,7 +149,7 @@ export default class collegeList extends Component {
     }
 
     componentDidMount(){
-        axios.get( "http://localhost:5000/college/" + this.props.match.params.id ).then(response => {
+        axios.get( "https://glacial-wave-89509.herokuapp.com/college/" + this.props.match.params.id ).then(response => {
             console.log(response.data.coll);
             this.setState({colleges: response.data.colleges, stud: response.data.stud, similar: response.data.similarColl})
             

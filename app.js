@@ -45,7 +45,7 @@ app.use(express.static(path.join(__dirname, 'public/')));
 
 app.get("/", function(req,res){
 
-    res.send("hi");
+    res.send("Here Runs Backend Server for APP");
  })
 
 
@@ -136,6 +136,21 @@ app.get("/collegeState/:id",function(req,res){
 
 });
 
+
+app.get("/state/college/:id",function(req,res){
+
+    var state = req.params.id;
+    student.find({state:state},function(err, found) {
+        if(err)
+        console.log(err);
+         else{
+             
+             res.json({coll:found});
+         }
+    });
+
+});
+
 app.post("/addColleges",function(req,res){
     
      var id = req.body.id;
@@ -166,8 +181,8 @@ app.post("/addColleges",function(req,res){
         if(err)
             console.log(err);
         else{
-            // res.send("success");
-            res.redirect('/');
+            res.send("success");
+            
         }
      });
 
